@@ -7,6 +7,7 @@ import { CATEGORIES, TOTAL_PROMPTS } from "@/lib/prompts";
 import { PayNow } from "@/components/paynow";
 import { FAQAccordion } from "@/components/FAQAccordion";
 import EmailCapture from "@/components/EmailCapture";
+import { EcosystemFooter } from "@/components/EcosystemFooter";
 
 const fadeUp = {
   initial: { opacity: 0, y: 30 },
@@ -747,78 +748,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Ecosystem Cross-sell */}
-      <section className="border-t border-[#23232F] py-16 mt-20">
-        <div className="max-w-6xl mx-auto px-4 text-center">
-          <p className="text-sm text-[#71717A] uppercase tracking-wider mb-4">From the AI Business Factory</p>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-2xl mx-auto">
-            <a href="https://tip-walking-flavor-seen.trycloudflare.com" target="_blank" rel="noopener" className="p-3 rounded-lg border border-[#23232F] hover:border-[#8B5CF6]/40 transition-colors text-left">
-              <p className="font-medium text-white text-sm">SiteForge</p>
-              <p className="text-xs text-[#71717A]">AI Landing Pages in 60s</p>
-            </a>
-            <a href="https://exercises-planet-gregory-loud.trycloudflare.com" target="_blank" rel="noopener" className="p-3 rounded-lg border border-[#23232F] hover:border-[#8B5CF6]/40 transition-colors text-left">
-              <p className="font-medium text-white text-sm">CryptoPayKit</p>
-              <p className="text-xs text-[#71717A]">Accept Crypto Payments</p>
-            </a>
-            <a href="https://ebony-eliminate-incentives-deborah.trycloudflare.com" target="_blank" rel="noopener" className="p-3 rounded-lg border border-[#23232F] hover:border-[#8B5CF6]/40 transition-colors text-left">
-              <p className="font-medium text-white text-sm">AIToolsRadar</p>
-              <p className="text-xs text-[#71717A]">Compare 40+ AI Tools</p>
-            </a>
-            <a href="https://simple-star-hrs-developer.trycloudflare.com" target="_blank" rel="noopener" className="p-3 rounded-lg border border-[#23232F] hover:border-[#8B5CF6]/40 transition-colors text-left">
-              <p className="font-medium text-white text-sm">PageForge</p>
-              <p className="text-xs text-[#71717A]">AI Page Generator</p>
-            </a>
-            <a href="https://offered-proposition-neighbors-explosion.trycloudflare.com" target="_blank" rel="noopener" className="p-3 rounded-lg border border-[#23232F] hover:border-[#8B5CF6]/40 transition-colors text-left">
-              <p className="font-medium text-white text-sm">Agency Site Grader</p>
-              <p className="text-xs text-[#71717A]">Grade Your Website</p>
-            </a>
-            <a href="https://ebooks-script-oral-primarily.trycloudflare.com" target="_blank" rel="noopener" className="p-3 rounded-lg border border-[#23232F] hover:border-[#8B5CF6]/40 transition-colors text-left">
-              <p className="font-medium text-white text-sm">Pricing Calculator</p>
-              <p className="text-xs text-[#71717A]">Freelance Pricing</p>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="border-t border-[#23232F] py-12 px-6">
-        <div className="mx-auto max-w-6xl">
-          <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
-            <div className="flex items-center gap-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#8B5CF6]">
-                <svg
-                  className="h-5 w-5 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M13 10V3L4 14h7v7l9-11h-7z"
-                  />
-                </svg>
-              </div>
-              <span className="text-lg font-bold text-white">PromptForge</span>
-            </div>
-            <p className="text-sm text-[#71717A]">
-              Built by autonomous AI agents
-            </p>
-            <div className="flex gap-6 text-sm text-[#71717A]">
-              <Link href="/terms" className="transition-colors hover:text-white">
-                Terms
-              </Link>
-              <Link href="/privacy" className="transition-colors hover:text-white">
-                Privacy
-              </Link>
-              <a href="mailto:hello@promptforge.ai" className="transition-colors hover:text-white">
-                Contact
-              </a>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <EcosystemFooter currentProduct="PromptForge" />
     </main>
   );
 }
