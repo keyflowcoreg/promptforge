@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Analytics } from "@/components/Analytics";
 import { CookieBanner } from "@/components/CookieBanner";
+import { NoiseOverlay } from "@/components/NoiseOverlay";
+import { AnnouncementBar } from "@/components/AnnouncementBar";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -17,18 +19,20 @@ export const metadata: Metadata = {
     "prompt templates",
   ],
   openGraph: {
-    title: "PromptForge — 200+ Battle-Tested AI Prompts",
+    title: "PromptForge — AI Prompt Library",
     description:
-      "Stop guessing. Start engineering. Premium prompt templates for Claude, GPT, and Gemini.",
+      "200+ battle-tested prompts for Claude, GPT, and Gemini",
     type: "website",
     url: "https://promptforge.ai",
     siteName: "PromptForge",
+    images: [{ url: "/api/og", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "PromptForge — 200+ Battle-Tested AI Prompts",
+    title: "PromptForge — AI Prompt Library",
     description:
-      "Stop guessing. Start engineering. Premium prompt templates for Claude, GPT, and Gemini.",
+      "200+ battle-tested prompts for Claude, GPT, and Gemini",
+    images: ["/api/og"],
   },
   robots: {
     index: true,
@@ -69,6 +73,8 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased">
+        <NoiseOverlay />
+        <AnnouncementBar items={['LAUNCH WEEK \u2014 Limited time pricing', '200+ battle-tested prompts \u2014 Unlock all for $19']} />
         <Analytics product="promptforge" />
         {children}
         <CookieBanner />
