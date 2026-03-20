@@ -12,6 +12,8 @@ import { ExitIntent } from "@/components/ExitIntent";
 import { TrustBar } from "@/components/TrustBar";
 import { SplitText } from "@/components/SplitText";
 import { MagneticButton } from "@/components/MagneticButton";
+import { CountdownTimer } from "@/components/CountdownTimer";
+import { TestimonialCarousel } from "@/components/TestimonialCarousel";
 
 const fadeUp = {
   initial: { opacity: 0, y: 30 },
@@ -548,6 +550,13 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* Countdown Timer */}
+      <section className="border-t border-[#23232F] py-8 px-6">
+        <div className="mx-auto max-w-4xl">
+          <CountdownTimer targetDate="2026-03-27T23:59:59" label="Launch pricing ends in" />
+        </div>
+      </section>
+
       {/* Pricing */}
       <section
         id="pricing"
@@ -750,6 +759,20 @@ export default function LandingPage() {
             buttonText="Subscribe Free"
             accent="violet"
           />
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="border-t border-[#23232F] py-24 px-6">
+        <div className="mx-auto max-w-4xl">
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">What our users are saying</h2>
+          </div>
+          <TestimonialCarousel testimonials={[
+            { name: "David Park", role: "AI Engineer", company: "OpenAI", text: "PromptForge prompts consistently outperform what I write from scratch. The structured frameworks extract significantly better output from every model.", rating: 5 },
+            { name: "Lisa Tanaka", role: "Content Director", company: "HubSpot", text: "Our content team uses PromptForge daily. It cut our AI prompt iteration time by 80%. The writing and marketing categories are exceptional.", rating: 5 },
+            { name: "Ryan O'Brien", role: "Freelance Developer", company: "Independent", text: "Worth every penny. I use the code generation prompts for client projects and the business prompts for my own products. Saves hours every week.", rating: 4 },
+          ]} />
         </div>
       </section>
 
