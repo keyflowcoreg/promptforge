@@ -10,6 +10,8 @@ import EmailCapture from "@/components/EmailCapture";
 import { EcosystemFooter } from "@/components/EcosystemFooter";
 import { ExitIntent } from "@/components/ExitIntent";
 import { TrustBar } from "@/components/TrustBar";
+import { SplitText } from "@/components/SplitText";
+import { MagneticButton } from "@/components/MagneticButton";
 
 const fadeUp = {
   initial: { opacity: 0, y: 30 },
@@ -127,17 +129,10 @@ export default function LandingPage() {
             {TOTAL_PROMPTS}+ battle-tested prompts — new ones added weekly
           </motion.div>
 
-          <motion.h1
-            variants={fadeUp}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="mb-6 text-5xl font-black leading-tight tracking-tight text-white md:text-7xl"
-          >
-            Stop wasting hours on
-            <br />
-            <span className="bg-gradient-to-r from-[#8B5CF6] to-[#A78BFA] bg-clip-text text-transparent">
-              prompts that don&apos;t work.
-            </span>
-          </motion.h1>
+          <h1 className="mb-6 text-5xl font-black leading-tight tracking-tight text-white md:text-7xl">
+            <SplitText text="Stop wasting hours on" className="justify-center" delay={0.1} />
+            <SplitText text="prompts that don't work." className="justify-center bg-gradient-to-r from-[#8B5CF6] to-[#A78BFA] bg-clip-text text-transparent" delay={0.4} />
+          </h1>
 
           <motion.p
             variants={fadeUp}
@@ -166,14 +161,12 @@ export default function LandingPage() {
                 accentColor="#8B5CF6"
               />
             </div>
-            <motion.div whileHover={{ scale: 1.06 }} whileTap={{ scale: 0.95 }}>
-              <Link
-                href="/prompts"
-                className="block w-full rounded-xl border border-[#23232F] bg-[#13131A] px-8 py-4 text-center text-lg font-semibold text-white transition-all hover:border-[#8B5CF6]/40 sm:w-auto"
-              >
-                Try 20 Free Prompts First
-              </Link>
-            </motion.div>
+            <MagneticButton
+              onClick={() => window.location.href = '/prompts'}
+              className="block w-full rounded-xl border border-[#23232F] bg-[#13131A] px-8 py-4 text-center text-lg font-semibold text-white transition-all hover:border-[#8B5CF6]/40 sm:w-auto cursor-pointer"
+            >
+              Try 20 Free Prompts First
+            </MagneticButton>
           </motion.div>
 
           <motion.div
