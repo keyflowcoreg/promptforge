@@ -65,7 +65,7 @@ export default function LandingPage() {
   return (
     <main className="min-h-screen bg-[#0A0A0F]">
       {/* Navigation */}
-      <nav className="fixed top-0 z-50 w-full border-b border-[#23232F]/50 bg-[#0A0A0F]/80 backdrop-blur-xl">
+      <nav className="z-50 w-full border-b border-[#23232F]/50 bg-[#0A0A0F]/80 backdrop-blur-xl">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <Link href="/" className="flex items-center gap-2">
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#8B5CF6]">
@@ -105,11 +105,42 @@ export default function LandingPage() {
       </nav>
 
       {/* Hero */}
-      <section className="relative flex min-h-screen items-center justify-center overflow-hidden px-6 pt-20">
-        {/* Background gradient */}
+      <section className="relative flex min-h-screen items-center justify-center overflow-hidden px-6">
+        {/* Background gradient — violet radial */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(139,92,246,0.12),transparent)]" />
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute left-1/2 top-1/4 h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-[#8B5CF6]/10 blur-[120px]" />
           <div className="absolute right-1/4 top-1/3 h-[400px] w-[400px] rounded-full bg-[#7C3AED]/5 blur-[100px]" />
+        </div>
+
+        {/* Floating prompt card preview */}
+        <div className="pointer-events-none absolute right-[8%] top-[18%] hidden w-72 rotate-3 rounded-2xl border border-violet-500/20 bg-[#13131A]/80 p-5 shadow-2xl shadow-violet-500/10 backdrop-blur-sm lg:block">
+          <div className="mb-2 flex items-center gap-2">
+            <span className="h-2 w-2 rounded-full bg-violet-400" />
+            <span className="text-[10px] font-bold uppercase tracking-widest text-violet-400">CODE GENERATION</span>
+          </div>
+          <p className="mb-3 text-sm font-semibold text-white">REST API Endpoint Generator</p>
+          <div className="space-y-1.5">
+            <div className="h-2 w-full rounded bg-violet-500/15" />
+            <div className="h-2 w-4/5 rounded bg-violet-500/10" />
+            <div className="h-2 w-3/5 rounded bg-violet-500/8" />
+          </div>
+          <div className="mt-3 flex items-center gap-2">
+            <span className="rounded-full bg-violet-500/15 px-2 py-0.5 text-[9px] font-medium text-violet-300">Claude</span>
+            <span className="rounded-full bg-violet-500/15 px-2 py-0.5 text-[9px] font-medium text-violet-300">GPT-4</span>
+          </div>
+        </div>
+
+        <div className="pointer-events-none absolute left-[5%] bottom-[22%] hidden w-64 -rotate-2 rounded-2xl border border-violet-500/15 bg-[#13131A]/70 p-4 shadow-xl shadow-violet-500/5 backdrop-blur-sm lg:block">
+          <div className="mb-2 flex items-center gap-2">
+            <span className="h-2 w-2 rounded-full bg-fuchsia-400" />
+            <span className="text-[10px] font-bold uppercase tracking-widest text-fuchsia-400">MARKETING</span>
+          </div>
+          <p className="mb-2 text-sm font-semibold text-white">Landing Page Copywriter</p>
+          <div className="space-y-1.5">
+            <div className="h-2 w-full rounded bg-fuchsia-500/12" />
+            <div className="h-2 w-3/4 rounded bg-fuchsia-500/8" />
+          </div>
         </div>
 
         <motion.div
@@ -325,7 +356,7 @@ export default function LandingPage() {
                 variants={fadeUp}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 whileHover={{ scale: 1.02, y: -4 }}
-                className="rounded-xl border border-[#23232F] bg-[#13131A] p-8 transition-colors hover:border-[#8B5CF6]/30"
+                className="rounded-xl border border-[#23232F] bg-[#13131A] p-8 transition-all hover:border-[#8B5CF6]/40 hover:shadow-lg hover:shadow-violet-500/10"
               >
                 <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-[#8B5CF6]/10 text-[#8B5CF6]">
                   {benefit.icon}
@@ -463,7 +494,7 @@ export default function LandingPage() {
                 variants={fadeUp}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 whileHover={{ scale: 1.03 }}
-                className="flex items-center justify-between rounded-xl border border-[#23232F] bg-[#13131A] p-5 transition-colors hover:border-[#8B5CF6]/30"
+                className="flex items-center justify-between rounded-xl border border-[#23232F] bg-[#13131A] p-5 transition-all hover:border-[#8B5CF6]/40 hover:shadow-md hover:shadow-violet-500/10"
               >
                 <div className="flex items-center gap-3">
                   <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#8B5CF6]/10 text-lg">
