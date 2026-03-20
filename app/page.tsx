@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { CATEGORIES, TOTAL_PROMPTS } from "@/lib/prompts";
-import { X402Checkout } from "@/components/x402/X402Checkout";
+import { PaymentOptions } from "@/components/stripe/PaymentOptions";
 
 const fadeUp = {
   initial: { opacity: 0, y: 30 },
@@ -154,20 +154,17 @@ export default function LandingPage() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
           >
-            <X402Checkout
-              endpoint="/api/premium"
-              productName="PromptForge Pro"
-              price="$19"
-              description={`${TOTAL_PROMPTS}+ AI Prompts — Lifetime Access`}
-              onSuccess={handlePaymentSuccess}
-              accentColor="#8B5CF6"
-            >
-              <motion.div whileHover={{ scale: 1.06 }} whileTap={{ scale: 0.95 }}>
-                <span className="group relative block w-full overflow-hidden rounded-xl bg-[#8B5CF6] px-8 py-4 text-center text-lg font-bold text-white transition-all hover:bg-[#7C3AED] hover:shadow-lg hover:shadow-[#8B5CF6]/25 sm:w-auto">
-                  <span className="relative z-10">Unlock All {TOTAL_PROMPTS}+ Prompts — $19</span>
-                </span>
-              </motion.div>
-            </X402Checkout>
+            <div className="w-full sm:w-80">
+              <PaymentOptions
+                productName="PromptForge Pro"
+                price={19}
+                description={`${TOTAL_PROMPTS}+ AI Prompts — Lifetime Access`}
+                x402Endpoint="/api/premium"
+                successUrl="/premium"
+                onX402Success={handlePaymentSuccess}
+                accentColor="#8B5CF6"
+              />
+            </div>
             <motion.div whileHover={{ scale: 1.06 }} whileTap={{ scale: 0.95 }}>
               <Link
                 href="/prompts"
@@ -668,20 +665,15 @@ export default function LandingPage() {
                   </li>
                 ))}
               </ul>
-              <X402Checkout
-                endpoint="/api/premium"
+              <PaymentOptions
                 productName="PromptForge Pro"
-                price="$19"
+                price={19}
                 description={`${TOTAL_PROMPTS}+ AI Prompts — Lifetime Access`}
-                onSuccess={handlePaymentSuccess}
+                x402Endpoint="/api/premium"
+                successUrl="/premium"
+                onX402Success={handlePaymentSuccess}
                 accentColor="#8B5CF6"
-              >
-                <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
-                  <span className="block w-full rounded-lg bg-[#8B5CF6] py-3 text-center font-bold text-white transition-all hover:bg-[#7C3AED] hover:shadow-lg hover:shadow-[#8B5CF6]/25">
-                    Unlock All {TOTAL_PROMPTS}+ Prompts — $19
-                  </span>
-                </motion.div>
-              </X402Checkout>
+              />
               <p className="mt-3 text-center text-xs text-[#71717A]">
                 Price increases as the library grows. Lock in $19 today.
               </p>
@@ -775,20 +767,17 @@ export default function LandingPage() {
             the price goes up as the library grows.
           </p>
           <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <X402Checkout
-              endpoint="/api/premium"
-              productName="PromptForge Pro"
-              price="$19"
-              description={`${TOTAL_PROMPTS}+ AI Prompts — Lifetime Access`}
-              onSuccess={handlePaymentSuccess}
-              accentColor="#8B5CF6"
-            >
-              <motion.div whileHover={{ scale: 1.06 }} whileTap={{ scale: 0.95 }}>
-                <span className="block w-full rounded-xl bg-[#8B5CF6] px-8 py-4 text-center text-lg font-bold text-white transition-all hover:bg-[#7C3AED] hover:shadow-lg hover:shadow-[#8B5CF6]/25 sm:w-auto">
-                  Unlock All {TOTAL_PROMPTS}+ Prompts — $19
-                </span>
-              </motion.div>
-            </X402Checkout>
+            <div className="w-full sm:w-80">
+              <PaymentOptions
+                productName="PromptForge Pro"
+                price={19}
+                description={`${TOTAL_PROMPTS}+ AI Prompts — Lifetime Access`}
+                x402Endpoint="/api/premium"
+                successUrl="/premium"
+                onX402Success={handlePaymentSuccess}
+                accentColor="#8B5CF6"
+              />
+            </div>
             <motion.div whileHover={{ scale: 1.06 }} whileTap={{ scale: 0.95 }}>
               <Link
                 href="/prompts"
@@ -799,7 +788,7 @@ export default function LandingPage() {
             </motion.div>
           </div>
           <p className="mt-4 text-xs text-[#71717A]">
-            One-time payment via x402 protocol. No account needed. Instant access.
+            One-time payment. Card, Apple Pay, Google Pay, or USDC. Instant access.
           </p>
         </motion.div>
       </section>
