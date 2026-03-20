@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { CATEGORIES, TOTAL_PROMPTS } from "@/lib/prompts";
-import { PaymentOptions } from "@/components/stripe/PaymentOptions";
+import { PayNow } from "@/components/paynow";
 
 const fadeUp = {
   initial: { opacity: 0, y: 30 },
@@ -155,13 +155,11 @@ export default function LandingPage() {
             className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
           >
             <div className="w-full sm:w-80">
-              <PaymentOptions
+              <PayNow
                 productName="PromptForge Pro"
                 price={19}
                 description={`${TOTAL_PROMPTS}+ AI Prompts — Lifetime Access`}
-                x402Endpoint="/api/premium"
-                successUrl="/premium"
-                onX402Success={handlePaymentSuccess}
+                onSuccess={handlePaymentSuccess}
                 accentColor="#8B5CF6"
               />
             </div>
@@ -665,13 +663,11 @@ export default function LandingPage() {
                   </li>
                 ))}
               </ul>
-              <PaymentOptions
+              <PayNow
                 productName="PromptForge Pro"
                 price={19}
                 description={`${TOTAL_PROMPTS}+ AI Prompts — Lifetime Access`}
-                x402Endpoint="/api/premium"
-                successUrl="/premium"
-                onX402Success={handlePaymentSuccess}
+                onSuccess={handlePaymentSuccess}
                 accentColor="#8B5CF6"
               />
               <p className="mt-3 text-center text-xs text-[#71717A]">
@@ -768,13 +764,11 @@ export default function LandingPage() {
           </p>
           <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <div className="w-full sm:w-80">
-              <PaymentOptions
+              <PayNow
                 productName="PromptForge Pro"
                 price={19}
                 description={`${TOTAL_PROMPTS}+ AI Prompts — Lifetime Access`}
-                x402Endpoint="/api/premium"
-                successUrl="/premium"
-                onX402Success={handlePaymentSuccess}
+                onSuccess={handlePaymentSuccess}
                 accentColor="#8B5CF6"
               />
             </div>
