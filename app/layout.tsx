@@ -44,27 +44,19 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "SoftwareApplication",
-              name: "PromptForge",
-              description:
-                "200+ battle-tested AI prompts for Claude, GPT, and Gemini. Organized by category, engineered for results.",
-              url: "https://promptforge.ai",
-              applicationCategory: "DeveloperApplication",
-              operatingSystem: "Web",
-              offers: {
-                "@type": "Offer",
-                price: "19",
-                priceCurrency: "USD",
-                availability: "https://schema.org/InStock",
-              },
-            }),
-          }}
-        />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          "name": "PromptForge",
+          "description": "200+ AI prompts library",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "Web",
+          "offers": {
+            "@type": "Offer",
+            "price": "19",
+            "priceCurrency": "USD"
+          }
+        }) }} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
