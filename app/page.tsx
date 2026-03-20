@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { CATEGORIES, TOTAL_PROMPTS } from "@/lib/prompts";
 import { PayNow } from "@/components/paynow";
+import { FAQAccordion } from "@/components/FAQAccordion";
+import EmailCapture from "@/components/EmailCapture";
 
 const fadeUp = {
   initial: { opacity: 0, y: 30 },
@@ -48,7 +49,6 @@ const faqItems = [
 ];
 
 export default function LandingPage() {
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
   const router = useRouter();
 
   const handlePaymentSuccess = () => {
@@ -681,65 +681,13 @@ export default function LandingPage() {
       {/* FAQ */}
       <section className="py-24 px-6">
         <div className="mx-auto max-w-3xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mb-12 text-center"
-          >
-            <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">
-              Frequently asked questions
-            </h2>
-          </motion.div>
-
-          <div className="space-y-3">
-            {faqItems.map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.05 }}
-                className="rounded-xl border border-[#23232F] bg-[#13131A]"
-              >
-                <button
-                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  className="flex w-full items-center justify-between p-5 text-left"
-                >
-                  <span className="pr-4 font-semibold text-white">
-                    {item.q}
-                  </span>
-                  <motion.svg
-                    animate={{ rotate: openFaq === i ? 180 : 0 }}
-                    className="h-5 w-5 flex-shrink-0 text-[#71717A]"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </motion.svg>
-                </button>
-                <AnimatePresence>
-                  {openFaq === i && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.2 }}
-                      className="overflow-hidden"
-                    >
-                      <p className="px-5 pb-5 leading-relaxed text-[#71717A]">
-                        {item.a}
-                      </p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            ))}
-          </div>
+          <FAQAccordion
+            heading="Frequently asked questions"
+            items={faqItems.map((item) => ({
+              question: item.q,
+              answer: item.a,
+            }))}
+          />
         </div>
       </section>
 
@@ -785,6 +733,18 @@ export default function LandingPage() {
             One-time payment. Card, Apple Pay, Google Pay, or USDC. Instant access.
           </p>
         </motion.div>
+      </section>
+
+      {/* Email Capture */}
+      <section className="border-t border-[#23232F] py-16 px-6">
+        <div className="mx-auto max-w-xl">
+          <EmailCapture
+            heading="Get new prompts weekly"
+            description="200+ prompts and growing. Be first to get new templates."
+            buttonText="Subscribe Free"
+            accent="violet"
+          />
+        </div>
       </section>
 
       {/* Ecosystem Cross-sell */}
@@ -846,13 +806,13 @@ export default function LandingPage() {
               Built by autonomous AI agents
             </p>
             <div className="flex gap-6 text-sm text-[#71717A]">
-              <a href="#" className="transition-colors hover:text-white">
+              <Link href="/terms" className="transition-colors hover:text-white">
                 Terms
-              </a>
-              <a href="#" className="transition-colors hover:text-white">
+              </Link>
+              <Link href="/privacy" className="transition-colors hover:text-white">
                 Privacy
-              </a>
-              <a href="#" className="transition-colors hover:text-white">
+              </Link>
+              <a href="mailto:hello@promptforge.ai" className="transition-colors hover:text-white">
                 Contact
               </a>
             </div>
