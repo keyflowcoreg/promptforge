@@ -8,6 +8,8 @@ import { PayNow } from "@/components/paynow";
 import { FAQAccordion } from "@/components/FAQAccordion";
 import EmailCapture from "@/components/EmailCapture";
 import { EcosystemFooter } from "@/components/EcosystemFooter";
+import { ExitIntent } from "@/components/ExitIntent";
+import { TrustBar } from "@/components/TrustBar";
 
 const fadeUp = {
   initial: { opacity: 0, y: 30 },
@@ -188,6 +190,16 @@ export default function LandingPage() {
           </motion.div>
         </motion.div>
       </section>
+
+      {/* TrustBar */}
+      <div className="mx-auto max-w-6xl px-6">
+        <TrustBar items={[
+          { label: 'Prompts', value: 200, suffix: '+' },
+          { label: 'Categories', value: 9 },
+          { label: 'AI Models', value: 3 },
+          { label: 'Updates', value: 0, prefix: '$', suffix: '/mo' },
+        ]} />
+      </div>
 
       {/* Social Proof Bar */}
       <section className="border-y border-[#23232F] bg-[#13131A]/50 py-12">
@@ -749,6 +761,12 @@ export default function LandingPage() {
       </section>
 
       <EcosystemFooter currentProduct="PromptForge" />
+
+      <ExitIntent
+        heading="5 free premium prompts"
+        description="Try 5 of our best prompts before you buy. No strings attached."
+        ctaText="Get free prompts"
+      />
     </main>
   );
 }
