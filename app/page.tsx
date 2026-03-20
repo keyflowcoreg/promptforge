@@ -198,16 +198,14 @@ export default function LandingPage() {
         <div className="mx-auto max-w-6xl px-6">
           <motion.p
             initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1 }}
             className="mb-8 text-center text-sm font-medium uppercase tracking-widest text-[#8B5CF6]"
           >
             Join a fast-growing community of builders who ship faster
           </motion.p>
           <motion.div
             initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1 }}
             className="grid grid-cols-2 gap-8 text-center md:grid-cols-4"
           >
             {[
@@ -219,8 +217,7 @@ export default function LandingPage() {
               <motion.div
                 key={stat.label}
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1, duration: 0.5 }}
               >
                 <p className="text-3xl font-black text-white md:text-4xl">
@@ -239,8 +236,7 @@ export default function LandingPage() {
         <div className="mx-auto max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
             className="mb-16 text-center"
           >
             <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">
@@ -255,8 +251,7 @@ export default function LandingPage() {
 
           <motion.div
             initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
+            animate="animate"
             variants={stagger}
             className="grid gap-6 md:grid-cols-3"
           >
@@ -349,8 +344,7 @@ export default function LandingPage() {
         <div className="mx-auto max-w-5xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
             className="mb-16 text-center"
           >
             <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">
@@ -366,8 +360,7 @@ export default function LandingPage() {
             {/* Without */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
               className="rounded-xl border border-red-500/20 bg-red-950/10 p-6"
             >
@@ -399,8 +392,7 @@ export default function LandingPage() {
             {/* With */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
               className="rounded-xl border border-emerald-500/20 bg-emerald-950/10 p-6"
             >
@@ -444,8 +436,7 @@ export default function LandingPage() {
         <div className="mx-auto max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
             className="mb-16 text-center"
           >
             <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">
@@ -459,8 +450,7 @@ export default function LandingPage() {
 
           <motion.div
             initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
+            animate="animate"
             variants={stagger}
             className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
           >
@@ -508,8 +498,7 @@ export default function LandingPage() {
         <div className="mx-auto max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
             className="mb-16 text-center"
           >
             <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">
@@ -540,9 +529,8 @@ export default function LandingPage() {
             ].map((step, i) => (
               <motion.div
                 key={step.step}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.15 }}
                 className="relative"
               >
@@ -567,8 +555,7 @@ export default function LandingPage() {
         <div className="mx-auto max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
             className="mb-16 text-center"
           >
             <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">
@@ -583,8 +570,7 @@ export default function LandingPage() {
             {/* Free Tier */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              animate={{ opacity: 1, x: 0 }}
               whileHover={{ scale: 1.02 }}
               className="rounded-xl border border-[#23232F] bg-[#13131A] p-8"
             >
@@ -634,8 +620,7 @@ export default function LandingPage() {
             {/* Pro Tier */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              animate={{ opacity: 1, x: 0 }}
               whileHover={{ scale: 1.02 }}
               className="relative rounded-xl border-2 border-[#8B5CF6] bg-[#13131A] p-8"
             >
@@ -710,8 +695,7 @@ export default function LandingPage() {
         <div className="mx-auto max-w-3xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
             className="mb-12 text-center"
           >
             <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">
@@ -724,8 +708,7 @@ export default function LandingPage() {
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.05 }}
                 className="rounded-xl border border-[#23232F] bg-[#13131A]"
               >
@@ -776,8 +759,7 @@ export default function LandingPage() {
       <section className="border-t border-[#23232F] bg-[#13131A]/30 py-24 px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          animate={{ opacity: 1, y: 0 }}
           className="mx-auto max-w-3xl text-center"
         >
           <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">
